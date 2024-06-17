@@ -1,6 +1,6 @@
-from app.database import Database
-from app.models import Reservation, Customer, Table
-from app.utils import display_reservations, make_reservation, get_available_tables
+from lib.database import Database
+from lib.models import Reservation, Customer, Table
+from lib.utils import display_reservations, make_reservation, get_available_tables
 
 def main():
     db = Database()
