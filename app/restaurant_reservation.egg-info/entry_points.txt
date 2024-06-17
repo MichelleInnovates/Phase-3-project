@@ -1,0 +1,2 @@
+[console_scripts]
+restaurant-reservation = restaurant_reservation.main:main
