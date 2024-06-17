@@ -1,34 +1,34 @@
-from .models import Reservation, Customer, Table
+import click
 
-def display_reservations(session):
-    reservations = session.query(Reservation).all()
-    for reservation in reservations:
-        print(reservation)
+def print_error(message):
+    """
+    Print an error message in red color.
+    """
+    click.secho(message, fg='red')
 
-def make_reservation(session):
-    name = input("Enter your name: ")
-    phone = input("Enter your phone number: ")
-    date_time = input("Enter the reservation date and time (YYYY-MM-DD HH:MM): ")
+def print_success(message):
+    """
+    Print a success message in green color.
+    """
+    click.secho(message, fg='green')
 
-    customer = session.query(Customer).filter_by(name=name, phone=phone).first()
-    if not customer:
-        customer = Customer(name=name, phone=phone)
-        session.add(customer)
-        session.commit()
+def print_warning(message):
+    """
+    Print a warning message in yellow color.
+    """
+    click.secho(message, fg='yellow')
 
-    available_tables = get_available_tables(session, date_time)
-    if available_tables:
-        table = available_tables[0]
-        reservation = Reservation(customer=customer, table=table, date_time=date_time)
-        session.add(reservation)
-        session.commit()
-        return customer
-    else:
-        print("Sorry, no available tables for the requested date and time.")
-        return None
+def prompt_choice(options):
+    """
+    Prompt the user to select an option from a list of choices.
+    """
+    choice = None
+    while choice not in options:
+        choice = click.prompt(f"Select an option ({', '.join(options)})")
+    return choice
 
-def get_available_tables(session, date_time):
-    reserved_tables = session.query(Reservation.table_id).filter_by(date_time=date_time).all()
-    reserved_table_ids = [table_id for table_id, in reserved_tables]
-    available_tables = session.query(Table).filter(~Table.id.in_(reserved_table_ids)).all()
-    return available_tables
+def confirm_action(message):
+    """
+    Prompt the user to confirm an action.
+    """
+    return click.confirm(message)
