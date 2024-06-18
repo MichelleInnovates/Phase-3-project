@@ -12,7 +12,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'restaurant-reservation = lib.cli:cli',
+            'restaurant-reservation = cli:cli',
         ],
     },
 )

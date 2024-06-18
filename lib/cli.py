@@ -1,6 +1,6 @@
 import click
-from lib.db import models
-from lib.db.database import Session
+from db import models
+from database import Session
 
 @click.group()
 def cli():

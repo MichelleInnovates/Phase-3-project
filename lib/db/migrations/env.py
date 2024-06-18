@@ -5,10 +5,15 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from lib.db.models import Base
 
+# Import your SQLAlchemy models
+from db.models import Base
+
+# Configure logging
+fileConfig(context.config.config_file_name)
+
+# Get the database URL from the Alembic configuration
 config = context.config
-fileConfig(config.config_file_name)
 target_metadata = Base.metadata
 
 def run_migrations_offline():
