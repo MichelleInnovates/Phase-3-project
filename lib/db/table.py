@@ -1,9 +1,12 @@
+
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 from db.models import Base
 
 class Table(Base):
     __tablename__ = 'tables'
+    __table_args__ = {'extend_existing': True}
+
     id = Column(Integer, primary_key=True)
     restaurant_id = Column(Integer, ForeignKey('restaurants.id'))
     table_number = Column(String(20), nullable=False)

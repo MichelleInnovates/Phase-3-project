@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, Boolean
 from db.models import Base
+from sqlalchemy.orm import declarative_base
+Base = declarative_base()
 
 class Restaurant(Base):
     __tablename__ = 'restaurants'

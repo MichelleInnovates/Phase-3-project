@@ -2,6 +2,7 @@ import re
 import random
 import string
 from datetime import datetime
+from db import Restaurant, Table, Reservation, Customer
 
 def format_datetime(dt):
     """

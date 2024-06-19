@@ -1,5 +1,5 @@
 import click
-
+from db import Restaurant, Table, Reservation, Customer
 def print_error(message):
     """
     Print an error message in red color.

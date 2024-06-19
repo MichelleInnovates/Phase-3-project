@@ -3,7 +3,10 @@ from sqlalchemy.orm import relationship
 from db.models import Base
 
 class Reservation(Base):
+    
+
     __tablename__ = 'reservations'
+    __table_args__ = {'extend_existing': True}
     id = Column(Integer, primary_key=True)
     restaurant_id = Column(Integer, ForeignKey('restaurants.id'))
     table_id = Column(Integer, ForeignKey('tables.id'))

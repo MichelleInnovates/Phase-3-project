@@ -1,20 +1,22 @@
-import click
-from db import models
-from database import Session
+# import click
+# from .database import create_tables, drop_tables
 
-@click.group()
-def cli():
-    pass
+# @click.command()
+# def create_tables():
+#     create_tables()
+#     click.echo("Tables created successfully.")
 
-@cli.command()
-def create_tables():
-    models.Base.metadata.create_all(bind=Session.get_bind())
-    click.echo("Tables created successfully.")
+# @click.command()
+# def drop_tables():
+#     drop_tables()
+#     click.echo("Tables dropped successfully.")
 
-@cli.command()
-def drop_tables():
-    models.Base.metadata.drop_all(bind=Session.get_bind())
-    click.echo("Tables dropped successfully.")
+# @click.group()
+# def cli():
+#     pass
 
-if __name__ == '__main__':
-    cli()
+# cli.add_command(create_tables)
+# cli.add_command(drop_tables)
+
+# if __name__ == '__main__':
+#     cli()
