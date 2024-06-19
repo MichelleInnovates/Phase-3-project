@@ -1,3 +1,0 @@
-[console_scripts]
-restaurant-reservation = cli:cli
-
