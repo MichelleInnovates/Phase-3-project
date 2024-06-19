@@ -6,9 +6,6 @@ verify_ssl = true
 [dev-packages]
 pytest = "*"
 
-[packages]
-sqlalchemy = "*"
-sqlalchemy-utils = "*"
 
 
 [requires]
